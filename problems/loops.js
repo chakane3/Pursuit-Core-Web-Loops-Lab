@@ -4,7 +4,16 @@
  * @param {number}
  * @returns {number[]}
  */
-function oneTillDoneWhileLoop() {}
+function oneTillDoneWhileLoop(num) {
+  var arr = []
+  let ub = num
+  var lb = 0
+  while(lb < ub){
+    arr[lb] = lb+1
+    lb++
+  }
+  return arr
+}
 
 /**
  * Takes in a number and returns an array filled with all numbers from 1 to given number (inclusive).
@@ -12,7 +21,13 @@ function oneTillDoneWhileLoop() {}
  * @param {number}
  * @returns {number[]}
  */
-function oneTillDoneForLoop() {}
+function oneTillDoneForLoop(num) {
+  var arr = []
+  for(i = 0; i < num; i++){
+    arr[i] = i+1
+  }
+  return arr
+}
 
 /**
  * Takes in a number and returns an array filled with all numbers from number to 0 (exclusive)
@@ -20,7 +35,18 @@ function oneTillDoneForLoop() {}
  * @param {number}
  * @returns {number[]}
  */
-function doneToZeroWhileLoop() {}
+function doneToZeroWhileLoop(num) {
+  var arr = []
+  let ub = num
+  var minus = ub
+  var lb = 0
+  while(lb < ub){
+    arr[lb] = minus
+    lb++
+    minus--
+  }
+  return arr
+}
 
 /**
  * Takes in a number and returns an array filled with all numbers from number to 0 (exclusive)
@@ -28,7 +54,15 @@ function doneToZeroWhileLoop() {}
  * @param {number}
  * @returns {number[]}
  */
-function doneToZeroForLoop() {}
+function doneToZeroForLoop(num) {
+  var arr = []
+  var minus = num
+  for(i = 0; i < num; i++){
+    arr[i] = minus
+    minus--
+  }
+  return arr
+}
 
 /**
  * Takes in the variable "max", and iterates over all numbers from 0 to "max".
@@ -39,7 +73,22 @@ function doneToZeroForLoop() {}
  * @param {number} max number
  * @returns {string[]} ["0 is even", "1 is odd", "2 is even", "3 is odd"] if max was 3
  */
-function evenAndOddWhileLoop() {}
+function evenAndOddWhileLoop(max) {
+  var lb = 0
+  var ub = max
+  var i = 0
+  var arr = []
+  while(lb <= max){
+    if(i % 2 === 0){
+      arr[i] = i + " is even"
+    } else {
+      arr[i] = i + " is odd"
+    }
+    i++
+    lb++
+  }
+  return arr
+}
 
 /**
  * Takes in the variable "max", and iterates over all numbers from 0 to "max".
@@ -50,7 +99,19 @@ function evenAndOddWhileLoop() {}
  * @param {number} max number
  * @returns {string[]} ["0 is even", "1 is odd", "2 is even", "3 is odd"] if max was 3
  */
-function evenAndOddForLoop() {}
+function evenAndOddForLoop(max) {
+  var arr = []
+  var aCount = 0
+  for(i = 0; i <= max; i++){
+    if(i % 2 === 0){
+      arr[i] = aCount + " is even"
+    } else {
+      arr[i] = aCount + " is odd"
+    }
+    aCount++
+  }
+  return arr
+}
 
 /**
  * Takes in the variable "x", and iterates over all numbers from 0 to "x".
@@ -66,7 +127,16 @@ function evenAndOddForLoop() {}
 * 4 * 9 = 36
 * 5 * 9 = 45
  */
-function tillXTimes9WhileLoop() {}
+function tillXTimes9WhileLoop(x) {
+  var lb = 0
+  let ub = x
+  var product = []
+  while(lb <= ub){
+    product[lb] = lb * 9
+    lb++
+  }
+  return product
+}
 
 /**
  * Takes in the variable "x", and iterates over all numbers from 0 to "x".
@@ -82,7 +152,13 @@ function tillXTimes9WhileLoop() {}
 * 4 * 9 = 36
 * 5 * 9 = 45
  */
-function tillXTimes9ForLoop() {}
+function tillXTimes9ForLoop(x) {
+  var product = []
+  for(i = 0; i <= x; i++){
+    product[i] = i * 9
+  }
+  return product
+}
 
 
 /**
@@ -91,7 +167,18 @@ function tillXTimes9ForLoop() {}
  * @returns {number[]} [5, 15, 25, ..., 95]
 
  */
-function endsWithFiveWhileLoop() {}
+function endsWithFiveWhileLoop() {
+  var lb = 0
+  let ub = 100
+  var arr = []
+  while(lb <= ub){
+    if(lb % 5 === 0 && lb % 10 !== 0){
+      arr.push(lb)
+    }
+    lb++
+  }
+  return arr
+}
 
 
 
@@ -101,7 +188,18 @@ function endsWithFiveWhileLoop() {}
  * @returns {number[]} [5, 15, 25, ..., 95]
 
  */
-function endsWithFiveForLoop() {}
+function endsWithFiveForLoop() {
+  var lb = 0
+  let ub = 100
+  var arr = []
+  for(i = 0; i < ub; i++){
+    if(lb % 5 === 0 && lb % 10 !== 0){
+      arr.push(lb)
+    }
+    lb++
+  }
+  return arr
+}
 // Try refactoring the code above to increment your i by 10 and starting at 5.
 
 
