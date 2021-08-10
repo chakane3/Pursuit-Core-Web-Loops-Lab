@@ -218,7 +218,7 @@ while (i > 3) {
 
 /**
  * // Write your explanation here!
- *
+ * i will always be bigger than 3, causing an infinite loop
  */
 
  /**
@@ -229,7 +229,20 @@ while (i > 3) {
  * @returns {Array} [1, 2, "Fizz", 4, "Buzz"... 98, "Fizz", "Buzz"]
 
  */
-function fizzBuzzPart1() {}
+function fizzBuzzPart1() {
+  var arr = []
+  for(i = 1; i < 101; i++){
+    if(i % 3 === 0){
+      arr.push("Fizz")
+    }
+    else if(i % 5 === 0 && i % 3 !== 0){
+      arr.push("Buzz")
+    } else {
+      arr.push(i)
+    }
+  }
+  return arr
+}
 
 
  /**
@@ -241,7 +254,29 @@ function fizzBuzzPart1() {}
  * @returns {Array}
 
  */
-function fizzBuzzPart2() {}
+function fizzBuzzPart2() {
+  var arr = []
+  for(i = 1; i < 101; i++){
+
+    //  * For numbers divisible by 3, add "Fizz" instead of the number into the array.
+    if(i % 3 === 0){
+      arr.push("Fizz")
+    }
+
+    //  * For numbers divisible by 5 (and not 3), add "Buzz" instead of the number into the array.
+    else if(i % 5 === 0 && i % 3 !== 0){
+      arr.push("Buzz")
+    }
+
+    //  * For numbers that are divisible by both 3 and 5 add "FizzBuzz" into the array.
+    else if(i % 5 === 0 && i % 3 === 0){
+      arr.push("FizzBuzz")
+    } else {
+      arr.push(i)
+    }
+  }
+  return arr
+}
 
 /**
  * Takes in range (inclusive) and returns the sum of all numbers in that range.
@@ -250,7 +285,13 @@ function fizzBuzzPart2() {}
  * @param {number} max number
  * @returns {number} sum all all numbers from min to max
  */
-function rangeSum() {}
+function rangeSum(min, max) {
+  var sum = 0
+  for(i = min; i < max+1; i++){
+    sum+=i
+  }
+  return sum
+}
 
 /**
  * Takes in range (inclusive) and returns an array in decreasing order of all odd numbers
@@ -260,7 +301,15 @@ function rangeSum() {}
  * @param {number} max number
  * @returns {number[]} all odd numbers in range decreasing
  */
-function rangeOdd() {}
+function rangeOdd(min, max) {
+  var arr = []
+  for(i = min; i < max+1; i++){
+    if(i % 2 !== 0){
+      arr.unshift(i)
+    }
+  }
+  return arr
+}
 
 /**
  * Takes in range (inclusive) and returns an array in increasing order of every other element.
@@ -270,7 +319,14 @@ function rangeOdd() {}
  * @param {number} max number
  * @returns {number[]} includes every other element
  */
-function rangeEveryOther() {}
+function rangeEveryOther(min, max) {
+  var arr = []
+  for(i = min; i < max+1; i+=2){
+    arr.push(i)
+  }
+  return arr
+
+}
 
 /**
  * Takes in an array and a target.
@@ -281,7 +337,19 @@ function rangeEveryOther() {}
  * @param {number|string} target
  * @returns {boolean} true if the array contains our target, otherwise false
  */
-function containsWhileLoop() {}
+function containsWhileLoop(elements, target) {
+  var flag = false
+  var i = 0
+  var lb = 0
+  let ub = elements.length
+  while(lb <= ub){
+    if(elements[lb] === target){
+      flag = true
+    }
+    lb++
+  }
+  return flag
+}
 
 /**
  * Takes in an array and a target.
@@ -292,7 +360,16 @@ function containsWhileLoop() {}
  * @param {number|string} target
  * @returns {boolean} true if the array contains our target, otherwise false
  */
-function containsForLoop() {}
+function containsForLoop(elements, target) {
+  var flag = false
+  for(i = 0; i < elements.length; i++){
+    if(elements[i] === target){
+      flag = true
+    }
+  }
+  return flag
+}
+
 /**
  * Takes in an array and a target.
  * Determines how many times the target exists in the array
@@ -300,7 +377,16 @@ function containsForLoop() {}
  * @param {number|string} target
  * @returns {number} number of occurances
  */
-function targetCount() {}
+function targetCount(elements, target) {
+  var aCount = 0
+  for(i = 0; i < elements.length; i++){
+    if(elements[i] === target){
+      aCount++
+    }
+  }
+  return aCount
+}
+
 /**
  * Takes in an array and a target.
  * Determines the first index that the target is found at.
@@ -310,7 +396,15 @@ function targetCount() {}
  * @param {number|string} target
  * @returns {number} first index found.
  */
-function firstIndexFound() {}
+function firstIndexFound(elements, target) {
+  var flag = false
+  for(i = 0; i < elements.length; i++){
+    if(elements[i] === target){
+      return i
+    }
+  }
+  return -1
+}
 /**
  * Takes in an array and a target.
  * Determines the last index that the target is found at.
@@ -320,7 +414,18 @@ function firstIndexFound() {}
  * @param {number|string} target
  * @returns {number} last index found.
  */
-function lastIndexFound() {}
+function lastIndexFound(elements, target) {
+  var lastIndex = 0
+  var flag = false
+  for(i = 0; i < elements.length; i++){
+    if(elements[i] === target){
+      lastIndex = i
+      flag = true
+    }
+  }
+  return (flag === false ? -1 : lastIndex)
+
+}
 
 /**
  * Takes in an array.
@@ -329,7 +434,13 @@ function lastIndexFound() {}
  * @param {number[]} elements
  * @returns {number[]}
  */
-function timesIndex() {}
+function timesIndex(elements) {
+  var arr = []
+  for(i = 0; i < elements.length; i++){
+    arr.push(i * elements[i])
+  }
+  return arr
+}
 
 
 /**
@@ -341,7 +452,17 @@ function timesIndex() {}
  * @param {number[]} elements
  * @returns {number[]}
  */
-function cumulativeSum() {}
+function cumulativeSum(elements) {
+  var arr = []
+  var foreward = 0
+  for(i = 0; i < elements.length; i++){
+    if(i < elements.length-1 && i !== 0){
+      foreward = elements[i+1]
+    }
+    arr.push(elements[i] + foreward)
+  }
+  return arr
+}
 
 
 
